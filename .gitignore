@@ -1,0 +1,4 @@
+node_modules
+crawler.log
+
+__pycache__
