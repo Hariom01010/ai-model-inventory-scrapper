@@ -1,4 +1,4 @@
-import { STORE_URLS } from "./constants.js";
+import { PRODUCT_URLS, STORE_URLS } from "./constants.js";
 import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
@@ -161,10 +161,10 @@ async function main() {
       console.log(`[INFO]: Found ${productCards.length} product cards`);
 
       // taking 5 products from each url
-      const minProductUrl = Math.min(productUrls.length, 5);
-      for (let j = 0; j < minProductUrl; j++) {
+
+      for (let j = 0; j < PRODUCT_URLS.length; j++) {
         const page = await context.newPage();
-        await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
+        await page.goto(PRODUCT_URLS[j], { waitUntil: "domcontentloaded" });
         await page.waitForTimeout(1000);
 
         const variantElements = await page.evaluate(() => {
@@ -210,37 +210,24 @@ async function main() {
               el.getAttribute("role") === "button" ||
               window.getComputedStyle(el).cursor === "pointer";
 
-            const classes =
-              typeof el.className === "string"
-                ? el.className.toLowerCase()
-                : (el.getAttribute("class") || "").toLowerCase();
+            const siblings = el.parentElement ? [...el.parentElement.children] : [];
+            let sameTagSiblings = siblings.filter(s => s.tagName === el.tagName).length;
+            let groupSize = siblings.length;
 
             return {
-              id: idx,
               tag: el.tagName.toLowerCase(),
               visible: isVisible(el) ? 1 : 0,
-              text,
               textLength: text.length,
+              sameTagSiblings,
               isClickable,
-              childCount: el.children.length,
-              siblingCount: el.parentElement
-                ? el.parentElement.children.length
-                : 0,
-              class_contains_variant: classes.includes("variant") ? 1 : 0,
-              class_contains_option: classes.includes("option") ? 1 : 0,
-              class_contains_size: classes.includes("size") ? 1 : 0,
-              class_contains_color: classes.includes("color") ? 1 : 0,
-              class_contains_swatch: classes.includes("swatch") ? 1 : 0,
+              groupSize,
               isSingleWord: text.split(" ").length === 1 ? 1 : 0,
               isShortText: text.length > 0 && text.length <= 5 ? 1 : 0,
               width: rect.width,
               height: rect.height,
-              area: rect.width * rect.height,
-              parentId: el.parentElement
-                ? el.parentElement.tagName +
-                  "_" +
-                  el.parentElement.children.length
-                : null,
+              inputType: el.getAttribute("type") || null,
+              isSelect: el.tagName.toLowerCase() === "select" ? 1 : 0,
+              isInput: el.tagName.toLowerCase() === "input" ? 1 : 0,
             };
           });
 

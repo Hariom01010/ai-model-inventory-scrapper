@@ -6,3 +6,21 @@ export const STORE_URLS = [
     "https://maguireshoes.com/collections/flats",
     "https://kirrinfinch.com/collections/all-pants"
 ]
+
+export const PRODUCT_URLS = [
+    "https://hiutdenim.co.uk/products/the-work-japanese-selvedge?Waist=28&Leg+Length=30",
+    "https://www.tentree.com/products/tentree-trees-elevation-hat-meteorite-black-green",
+    "https://maguireshoes.com/products/douro-navy-loafer",
+    "https://kirrinfinch.com/products/short-sleeve-cardigan?variant=42568574632007",
+    "https://rothys.com/products/womens-fisherman-sandal-pecan",
+    "https://cocolab.com/products/brush-buddies-set?selling_plan=6381109342?variant=42434816278622",
+    "https://unitedbyblue.com/products/bison-boot-sock",
+    "https://www.allbirds.com/products/mens-varsity-airy-mushroom-blizzard"
+]
+
+const labels = {
+    0: 'none',
+    1: 'dropdown',
+    2: 'swatch',
+    3: 'range'
+}
