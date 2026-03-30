@@ -1,27 +1,23 @@
-import { PRODUCT_URLS, STORE_URLS } from "./constants.js";
+import { STORE_URLS, VARIANT_CANDIDATES } from "./constants.js";
 import { chromium } from "playwright";
-import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const PRODUCT_VARIANT_DIR = path.join(__dirname, "data/product_variants");
-if (!fs.existsSync(PRODUCT_VARIANT_DIR)) {
-  fs.mkdirSync(PRODUCT_VARIANT_DIR);
-}
-const LOG_FILE = path.join(__dirname, "crawler.log");
-
-function log(message) {
-  const time = new Date().toISOString();
-  const finalMessage = `[${time}] ${message}\n`;
-
-  fs.appendFileSync(LOG_FILE, finalMessage);
-}
+import fs from "fs";
 
 async function predictProductCards(items) {
   const res = await fetch("http://127.0.0.1:8000/predict/product-card/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ items }),
+  });
+
+  const data = await res.json();
+  return data.results;
+}
+
+async function clusterProductVariants(items) {
+  const res = await fetch("http://127.0.0.1:8000/cluster", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -38,33 +34,18 @@ async function main() {
   const context = await browser.newContext({
     userAgent:
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
-    viewport: { width: 1280, height: 800 },
+    viewport: { width: 1920, height: 1080 },
   });
-
-  const DATA_DIR = path.join(__dirname, "data");
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR);
-  }
-
-  const TEST_DATA_DIR = path.join(__dirname, "test_data");
-  if (!fs.existsSync(TEST_DATA_DIR)) {
-    fs.mkdirSync(TEST_DATA_DIR);
-  }
 
   let count = 0;
   for (let i = 0; i < STORE_URLS.length; i++) {
     const page = await context.newPage();
-    page.on("console", (msg) => {
-      log(`[BROWSER]: ${msg.text()}`);
-    });
     try {
-      console.log(`[INFO]: VISITIN ${STORE_URLS[i]}`);
+      console.log(`[INFO]: Visiting ${STORE_URLS[i]}`);
       await page.goto(STORE_URLS[i], { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(2000);
 
       const elements = await page.evaluate(() => {
-        const logs = [];
-
         const isVisible = (el) => {
           return (
             el.offsetWidth > 0 &&
@@ -76,8 +57,6 @@ async function main() {
         const candidates = Array.from(
           document.querySelectorAll("div, li, article, a"),
         );
-
-        logs.push(`TOTAL candidates: ${candidates.length}`);
 
         const candidateInfo = candidates.map((el) => {
           const text = el.innerText?.trim().slice(0, 200) || "";
@@ -132,16 +111,10 @@ async function main() {
           };
         });
 
-        logs.push(`After map: ${candidateInfo.length}`);
-        logs.push(`visible: ${candidateInfo.filter((e) => e.visible).length}`);
-
         const finalCandidates = candidateInfo.filter((el) => el.visible);
 
-        logs.push(`After filter: ${finalCandidates.length}`);
-
-        return { logs, data: finalCandidates };
+        return { data: finalCandidates };
       });
-      elements.logs.forEach((l) => log(`[PIPELINE]: ${l}`));
 
       const itemsWithId = elements.data.map((el, idx) => ({
         id: `${i}_${idx}`,
@@ -160,98 +133,101 @@ async function main() {
       console.log("[INFO]: Product URLs:", productUrls);
       console.log(`[INFO]: Found ${productCards.length} product cards`);
 
-      // taking 5 products from each url
-
-      for (let j = 0; j < PRODUCT_URLS.length; j++) {
+      for (let j = 0; j < 3; j++) {
         const page = await context.newPage();
-        await page.goto(PRODUCT_URLS[j], { waitUntil: "domcontentloaded" });
+        await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
         await page.waitForTimeout(1000);
 
-        const variantElements = await page.evaluate(() => {
-          const logs = [];
+        const elements = await page.evaluate((selectors) => {
+          return selectors.flatMap((selector) => {
+            const nodes = Array.from(document.querySelectorAll(selector));
 
-          const isVisible = (el) => {
-            return (
-              el.offsetWidth > 0 &&
-              el.offsetHeight > 0 &&
-              el.getClientRects().length > 0
-            );
-          };
+            return nodes
+              .map((element) => {
+                const rect = element.getBoundingClientRect();
 
-          const variantCandidates = Array.from(
-            document.querySelectorAll(
-              `button,
-              input[type="radio"],
-              input[type="button"],
-              label,
-              select option,
-              li,
-              [role="option"],
-              [role="radio"],
-              [class*="variant"],
-              [class*="option"],
-              [class*="swatch"],
-              [class*="size"],
-              [class*="color"],
-              div,
-              span`,
-            ),
-          );
+                const hasSize = rect.width > 0 && rect.height > 0;
+                const isInViewport =
+                  rect.top >= 0 &&
+                  rect.left >= 0 &&
+                  rect.bottom <=
+                    (window.innerHeight ||
+                      document.documentElement.clientHeight) &&
+                  rect.right <=
+                    (window.innerWidth || document.documentElement.clientWidth);
+                const style = window.getComputedStyle(element);
+                const isVisible =
+                  style.display !== "none" &&
+                  style.visibility !== "hidden" &&
+                  style.opacity !== "0";
 
-          logs.push(`Total variant candidates: ${variantCandidates.length}`);
+                const hasDirectImage =
+                  element.tagName === "IMG" || element.tagName === "SVG";
+                const hasChildImage =
+                  element.querySelector('img, svg, [role="img"]') !== null;
+                const hasBackgroundImage =
+                  window.getComputedStyle(element).backgroundImage !== "none";
 
-          const candidateInfo = variantCandidates.map((el, idx) => {
-            const text = (el.innerText || "").trim().slice(0, 100);
-            const rect = el.getBoundingClientRect();
+                const isNativeClickable = [
+                  "A",
+                  "BUTTON",
+                  "INPUT",
+                  "SELECT",
+                  "TEXTAREA",
+                ].includes(element.tagName);
+                const hasClickableRole = [
+                  "button",
+                  "link",
+                  "checkbox",
+                  "radio",
+                  "menuitem",
+                  "option",
+                ].includes(element.getAttribute("role"));
+                const hasPointerCursor = style.cursor === "pointer";
+                const isNotDisabled =
+                  !element.disabled &&
+                  element.getAttribute("aria-disabled") !== "true";
 
-            const isClickable =
-              el.tagName === "BUTTON" ||
-              el.onclick != null ||
-              el.getAttribute("role") === "button" ||
-              window.getComputedStyle(el).cursor === "pointer";
+                const isClickable =
+                  (isNativeClickable || hasClickableRole || hasPointerCursor) &&
+                  isNotDisabled;
 
-            const siblings = el.parentElement ? [...el.parentElement.children] : [];
-            let sameTagSiblings = siblings.filter(s => s.tagName === el.tagName).length;
-            let groupSize = siblings.length;
-
-            return {
-              tag: el.tagName.toLowerCase(),
-              visible: isVisible(el) ? 1 : 0,
-              textLength: text.length,
-              sameTagSiblings,
-              isClickable,
-              groupSize,
-              isSingleWord: text.split(" ").length === 1 ? 1 : 0,
-              isShortText: text.length > 0 && text.length <= 5 ? 1 : 0,
-              width: rect.width,
-              height: rect.height,
-              inputType: el.getAttribute("type") || null,
-              isSelect: el.tagName.toLowerCase() === "select" ? 1 : 0,
-              isInput: el.tagName.toLowerCase() === "input" ? 1 : 0,
-            };
+                if (isInViewport && isVisible && hasSize) {
+                  return {
+                    x: rect.x,
+                    y: rect.y,
+                    width: rect.width,
+                    height: rect.height,
+                    tagName: element.tagName,
+                    parent: element.parentElement.tagName,
+                    siblingCount: element.parentElement.children.length - 1,
+                    childCount: element.childElementCount,
+                    hasImage:
+                      hasDirectImage || hasChildImage || hasBackgroundImage,
+                    text: element.innerText,
+                    isClickable,
+                  };
+                }
+                return null;
+              })
+              .filter((item) => item !== null);
           });
-
-          logs.push(`After map: ${candidateInfo.length}`);
-          logs.push(
-            `visible: ${candidateInfo.filter((e) => e.visible).length}`,
-          );
-
-          const finalCandidates = candidateInfo.filter((el) => el.visible);
-
-          logs.push(`After filter: ${finalCandidates.length}`);
-          return { logs, data: finalCandidates };
-        });
-
+        }, VARIANT_CANDIDATES);
+        
+        const clusters = await clusterProductVariants(elements);
+        console.log("RAW RESPONSE:", clusters);
         const filePath = path.join(
-          PRODUCT_VARIANT_DIR,
-          `product_${count}.json`,
+          "train_data/product_variants",
+          `page_${count}_variants.json`,
         );
-        fs.writeFileSync(
-          filePath,
-          JSON.stringify(variantElements.data, null, 2),
-        );
+        const dataToSave = {
+          url: productUrls[j],
+          clusters: clusters,
+        }; 
+
+        fs.writeFileSync(filePath, JSON.stringify(dataToSave, null, 2));
+        console.log(`Saved results for Page ${count} to ${filePath}`);
         count++;
-        console.log(`[INFO]: Saved variant data → ${filePath}`);
         await page.close();
       }
     } catch (e) {

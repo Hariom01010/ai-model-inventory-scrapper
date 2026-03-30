@@ -1,0 +1,191 @@
+{
+  "url": "https://saralhome.com/collections/bedsheet/products/diamond-bedsheet-2",
+  "clusters": [
+    [
+      {
+        "x": 1536.390625,
+        "y": 125.375,
+        "width": 75.6875,
+        "height": 26,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Kids Decor",
+        "isClickable": true
+      },
+      {
+        "x": 1735.453125,
+        "y": 125.375,
+        "width": 47.140625,
+        "height": 26,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Gifting",
+        "isClickable": true
+      }
+    ],
+    [
+      {
+        "x": 437.10577392578125,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Bedsheets",
+        "isClickable": true
+      },
+      {
+        "x": 592.7307739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Quilts & Blankets",
+        "isClickable": true
+      },
+      {
+        "x": 748.3557739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Combo Sets",
+        "isClickable": true
+      },
+      {
+        "x": 514.9182739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Bathmats",
+        "isClickable": true
+      },
+      {
+        "x": 670.5432739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Towels",
+        "isClickable": true
+      },
+      {
+        "x": 514.9182739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Sofa covers",
+        "isClickable": true
+      },
+      {
+        "x": 670.5432739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Cushions Covers",
+        "isClickable": true
+      },
+      {
+        "x": 437.10577392578125,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Doormats",
+        "isClickable": true
+      },
+      {
+        "x": 592.7307739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Yogamats",
+        "isClickable": true
+      },
+      {
+        "x": 748.3557739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Tablemats",
+        "isClickable": true
+      },
+      {
+        "x": 514.9182739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Rugs",
+        "isClickable": true
+      },
+      {
+        "x": 670.5432739257812,
+        "y": 84.09375,
+        "width": 115.625,
+        "height": 24,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "Carpets",
+        "isClickable": true
+      }
+    ]
+  ]
+}

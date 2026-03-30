@@ -1,0 +1,288 @@
+{
+  "url": "https://hiutdenim.co.uk/products/the-work-japanese-selvedge",
+  "clusters": [
+    [
+      {
+        "x": 1122.34375,
+        "y": 65,
+        "width": 132.328125,
+        "height": 56,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Shop",
+        "isClickable": true
+      },
+      {
+        "x": 1270.671875,
+        "y": 65,
+        "width": 132.328125,
+        "height": 56,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Story",
+        "isClickable": true
+      },
+      {
+        "x": 1419,
+        "y": 65,
+        "width": 132.328125,
+        "height": 56,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Guides",
+        "isClickable": true
+      }
+    ],
+    [
+      {
+        "x": 48,
+        "y": 436.703125,
+        "width": 121.453125,
+        "height": 20,
+        "tagName": "A",
+        "parent": "H2",
+        "siblingCount": 1,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Regular Straight Fit",
+        "isClickable": true
+      },
+      {
+        "x": 177.453125,
+        "y": 436.703125,
+        "width": 102.53125,
+        "height": 20,
+        "tagName": "A",
+        "parent": "H2",
+        "siblingCount": 1,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Selvedge denim",
+        "isClickable": true
+      }
+    ],
+    [
+      {
+        "x": 1264.65625,
+        "y": 878.25,
+        "width": 136.078125,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 5,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Ordering",
+        "isClickable": true
+      },
+      {
+        "x": 1264.65625,
+        "y": 898.25,
+        "width": 136.078125,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 5,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Shipping",
+        "isClickable": true
+      },
+      {
+        "x": 1264.65625,
+        "y": 918.25,
+        "width": 136.078125,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 5,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Returns",
+        "isClickable": true
+      },
+      {
+        "x": 1264.65625,
+        "y": 938.25,
+        "width": 136.078125,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 5,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Repairs",
+        "isClickable": true
+      },
+      {
+        "x": 1264.65625,
+        "y": 958.25,
+        "width": 136.078125,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 5,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "FAQ",
+        "isClickable": true
+      },
+      {
+        "x": 1416.734375,
+        "y": 878.25,
+        "width": 136.09375,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 4,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "About Us",
+        "isClickable": true
+      },
+      {
+        "x": 1416.734375,
+        "y": 898.25,
+        "width": 136.09375,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 4,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Factory Visit",
+        "isClickable": true
+      },
+      {
+        "x": 1416.734375,
+        "y": 918.25,
+        "width": 136.09375,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 4,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Careers",
+        "isClickable": true
+      },
+      {
+        "x": 1416.734375,
+        "y": 938.25,
+        "width": 136.09375,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 4,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Press",
+        "isClickable": true
+      }
+    ],
+    [
+      {
+        "x": 1648.984375,
+        "y": 1020,
+        "width": 40,
+        "height": 40,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 3,
+        "childCount": 1,
+        "hasImage": true,
+        "text": "",
+        "isClickable": true
+      },
+      {
+        "x": 1704.984375,
+        "y": 1020,
+        "width": 40,
+        "height": 40,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 3,
+        "childCount": 1,
+        "hasImage": true,
+        "text": "",
+        "isClickable": true
+      },
+      {
+        "x": 1760.984375,
+        "y": 1020,
+        "width": 40,
+        "height": 40,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 3,
+        "childCount": 1,
+        "hasImage": true,
+        "text": "",
+        "isClickable": true
+      },
+      {
+        "x": 1816.984375,
+        "y": 1020,
+        "width": 40,
+        "height": 40,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 3,
+        "childCount": 1,
+        "hasImage": true,
+        "text": "",
+        "isClickable": true
+      }
+    ],
+    [
+      {
+        "x": 355.75,
+        "y": 1048,
+        "width": 33.671875,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "T&C's",
+        "isClickable": true
+      },
+      {
+        "x": 397.421875,
+        "y": 1048,
+        "width": 45.90625,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Cookies",
+        "isClickable": true
+      },
+      {
+        "x": 451.328125,
+        "y": 1048,
+        "width": 41.15625,
+        "height": 16,
+        "tagName": "A",
+        "parent": "DIV",
+        "siblingCount": 2,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Privacy",
+        "isClickable": true
+      }
+    ]
+  ]
+}
