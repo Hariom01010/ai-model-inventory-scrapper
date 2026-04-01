@@ -13,7 +13,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Shop",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "flex items-center justify-center"
       },
       {
         "x": 1270.671875,
@@ -26,7 +28,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Story",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "flex items-center justify-center"
       },
       {
         "x": 1419,
@@ -39,7 +43,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Guides",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "flex items-center justify-center"
       }
     ],
     [
@@ -54,7 +60,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Shop",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "hover:underline"
       },
       {
         "x": 48,
@@ -67,7 +75,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Wide Fit",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "font-normal hover:underline"
       }
     ],
     [
@@ -82,7 +92,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Ordering",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1264.65625,
@@ -95,7 +107,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Shipping",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1264.65625,
@@ -108,7 +122,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Returns",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1264.65625,
@@ -121,7 +137,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Repairs",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1264.65625,
@@ -134,7 +152,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "FAQ",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1416.734375,
@@ -147,7 +167,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "About Us",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1416.734375,
@@ -160,7 +182,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Factory Visit",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1416.734375,
@@ -173,7 +197,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Careers",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1416.734375,
@@ -186,7 +212,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Press",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       }
     ],
     [
@@ -201,7 +229,9 @@
         "childCount": 1,
         "hasImage": true,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1704.984375,
@@ -214,7 +244,9 @@
         "childCount": 1,
         "hasImage": true,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1760.984375,
@@ -227,7 +259,9 @@
         "childCount": 1,
         "hasImage": true,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1816.984375,
@@ -240,7 +274,9 @@
         "childCount": 1,
         "hasImage": true,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       }
     ],
     [
@@ -255,7 +291,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "T&C's",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 397.421875,
@@ -268,7 +306,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Cookies",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 451.328125,
@@ -281,7 +321,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Privacy",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       }
     ]
   ]

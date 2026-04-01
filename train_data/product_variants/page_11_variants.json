@@ -13,7 +13,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "CLIMATE+",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "tracking-wider pointer hover:underline"
       },
       {
         "x": 477.0625,
@@ -26,7 +28,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "IMPACT",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "tracking-wider cursor-auto"
       }
     ],
     [
@@ -41,7 +45,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "contact",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       },
       {
         "x": 445.546875,
@@ -54,7 +60,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "shipping",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       }
     ],
     [
@@ -69,7 +77,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "help centre",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       },
       {
         "x": 445.546875,
@@ -82,7 +92,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "klarna FAQ",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       }
     ],
     [
@@ -97,7 +109,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "trade in program",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       },
       {
         "x": 859.109375,
@@ -110,7 +124,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "become a retailer",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "\n                cursor-pointer\n                hover:underline \n                flex-auto \n              "
       }
     ]
   ]

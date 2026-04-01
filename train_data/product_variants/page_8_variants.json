@@ -13,7 +13,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Home",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1374.578125,
@@ -26,7 +28,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Sindhu & Pranahita",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       }
     ]
   ]

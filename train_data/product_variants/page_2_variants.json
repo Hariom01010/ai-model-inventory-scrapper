@@ -1,10 +1,10 @@
 {
-  "url": "https://www.nicobar.com/collections/sindhu/products/nava-shirt-charcoal?_pos=3&_fid=1b7e537dd&_ss=c",
+  "url": "https://www.nicobar.com/collections/sindhu/products/half-sleeve-shirt-light-green-embroidered?_pos=3&_fid=8ece828a4&_ss=c",
   "clusters": [
     [
       {
         "x": 1334.484375,
-        "y": 377.765625,
+        "y": 756.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -13,11 +13,13 @@
         "childCount": 1,
         "hasImage": false,
         "text": "S",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1463.96875,
-        "y": 377.765625,
+        "y": 756.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -26,11 +28,13 @@
         "childCount": 1,
         "hasImage": false,
         "text": "M",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1593.453125,
-        "y": 377.765625,
+        "y": 756.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -39,11 +43,13 @@
         "childCount": 1,
         "hasImage": false,
         "text": "L",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1722.9375,
-        "y": 377.765625,
+        "y": 756.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -52,11 +58,13 @@
         "childCount": 1,
         "hasImage": false,
         "text": "XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1334.484375,
-        "y": 422.765625,
+        "y": 801.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -65,11 +73,13 @@
         "childCount": 1,
         "hasImage": false,
         "text": "2XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       },
       {
         "x": 1463.96875,
-        "y": 422.765625,
+        "y": 801.765625,
         "width": 117.484375,
         "height": 33,
         "tagName": "LABEL",
@@ -78,13 +88,15 @@
         "childCount": 1,
         "hasImage": false,
         "text": "3XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": ""
       }
     ],
     [
       {
         "x": 1333.484375,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -93,11 +105,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "S",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1462.96875,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -106,11 +120,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "M",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1592.453125,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -119,11 +135,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "L",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1721.9375,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -132,11 +150,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1333.484375,
-        "y": 421.765625,
+        "y": 800.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -145,11 +165,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "2XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1462.96875,
-        "y": 421.765625,
+        "y": 800.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -158,11 +180,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "3XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1333.484375,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -171,11 +195,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "S",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1462.96875,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -184,11 +210,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "M",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1592.453125,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -197,11 +225,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "L",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1721.9375,
-        "y": 376.765625,
+        "y": 755.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -210,11 +240,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1333.484375,
-        "y": 421.765625,
+        "y": 800.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -223,11 +255,13 @@
         "childCount": 3,
         "hasImage": false,
         "text": "2XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       },
       {
         "x": 1462.96875,
-        "y": 421.765625,
+        "y": 800.765625,
         "width": 119.484375,
         "height": 35,
         "tagName": "DIV",
@@ -236,7 +270,9 @@
         "childCount": 3,
         "hasImage": false,
         "text": "3XL",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "pdp-picker-iteam ss "
       }
     ]
   ]

@@ -13,7 +13,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Shop",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "font-sans-big-size nav-link"
       },
       {
         "x": 163.171875,
@@ -26,7 +28,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "About",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "font-sans-big-size nav-link"
       }
     ],
     [
@@ -41,7 +45,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link"
       },
       {
         "x": 1416.671875,
@@ -54,7 +60,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link"
       },
       {
         "x": 1446.671875,
@@ -67,7 +75,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link"
       }
     ],
     [
@@ -82,7 +92,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "35\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1395.90625,
@@ -95,7 +107,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "36\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1440.140625,
@@ -108,7 +122,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "37\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1484.375,
@@ -121,7 +137,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "38\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1528.609375,
@@ -134,7 +152,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "39\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1572.84375,
@@ -147,7 +167,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "40\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1617.078125,
@@ -160,7 +182,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "41\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1661.3125,
@@ -173,7 +197,9 @@
         "childCount": 2,
         "hasImage": false,
         "text": "42\nWaitlist",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       }
     ],
     [
@@ -188,7 +214,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "35",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled selected"
       },
       {
         "x": 1397.015625,
@@ -201,7 +229,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "36",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1441.25,
@@ -214,7 +244,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "37",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1485.484375,
@@ -227,7 +259,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "38",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1529.71875,
@@ -240,7 +274,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "39",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1573.953125,
@@ -253,7 +289,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "40",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1618.1875,
@@ -266,7 +304,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "41",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       },
       {
         "x": 1662.421875,
@@ -279,7 +319,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "42",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": true,
+        "classes": "variant-option disabled"
       }
     ]
   ]

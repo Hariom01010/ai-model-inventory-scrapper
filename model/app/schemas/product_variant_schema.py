@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from typing import List
 
 class Item(BaseModel):
@@ -13,6 +13,8 @@ class Item(BaseModel):
     hasImage: bool
     text: str
     isClickable: bool
+    isDisabled: bool
+    model_config = ConfigDict(extra="allow")
 
 class ProductVariantRequest(BaseModel):
     items: List[Item]

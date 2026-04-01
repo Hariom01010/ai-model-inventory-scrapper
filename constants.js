@@ -33,6 +33,7 @@ export const VARIANT_CANDIDATES = [
   'input[type="radio"]',
   "select",
   'div[data-id]',
+  'div[data-value]',
   'div[data-variantid]',
   'div[data-available]',
   'div[data-variant]',

@@ -13,7 +13,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "Shop",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "font-sans-big-size nav-link"
       },
       {
         "x": 163.171875,
@@ -26,7 +28,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "About",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "font-sans-big-size nav-link"
       }
     ],
     [
@@ -41,7 +45,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link is-pale"
       },
       {
         "x": 1416.671875,
@@ -54,7 +60,9 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link"
       },
       {
         "x": 1446.671875,
@@ -67,7 +75,146 @@
         "childCount": 0,
         "hasImage": false,
         "text": "",
-        "isClickable": true
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "color-box color-box--link"
+      }
+    ],
+    [
+      {
+        "x": 1722.984375,
+        "y": 269,
+        "width": 89.515625,
+        "height": 29.1875,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "Size Guide",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-action-btn"
+      },
+      {
+        "x": 1351.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "35",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option selected"
+      },
+      {
+        "x": 1393.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "36",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1435.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "37",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1477.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "38",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1519.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "39",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1561.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "40",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1603.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "41",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
+      },
+      {
+        "x": 1645.671875,
+        "y": 308.1875,
+        "width": 32,
+        "height": 32,
+        "tagName": "BUTTON",
+        "parent": "DIV",
+        "siblingCount": 0,
+        "childCount": 0,
+        "hasImage": false,
+        "text": "42",
+        "isClickable": true,
+        "isDisabled": false,
+        "classes": "variant-option"
       }
     ],
     [
@@ -82,7 +229,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "35",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1393.671875,
@@ -95,7 +244,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "36",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1435.671875,
@@ -108,7 +259,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "37",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1477.671875,
@@ -121,7 +274,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "38",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1519.671875,
@@ -134,7 +289,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "39",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1561.671875,
@@ -147,7 +304,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "40",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1603.671875,
@@ -160,7 +319,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "41",
-        "isClickable": false
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       },
       {
         "x": 1645.671875,
@@ -173,113 +334,9 @@
         "childCount": 1,
         "hasImage": false,
         "text": "42",
-        "isClickable": false
-      }
-    ],
-    [
-      {
-        "x": 1351.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "35",
-        "isClickable": true
-      },
-      {
-        "x": 1393.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "36",
-        "isClickable": true
-      },
-      {
-        "x": 1435.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "37",
-        "isClickable": true
-      },
-      {
-        "x": 1477.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "38",
-        "isClickable": true
-      },
-      {
-        "x": 1519.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "39",
-        "isClickable": true
-      },
-      {
-        "x": 1561.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "40",
-        "isClickable": true
-      },
-      {
-        "x": 1603.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "41",
-        "isClickable": true
-      },
-      {
-        "x": 1645.671875,
-        "y": 308.1875,
-        "width": 32,
-        "height": 32,
-        "tagName": "BUTTON",
-        "parent": "DIV",
-        "siblingCount": 0,
-        "childCount": 0,
-        "hasImage": false,
-        "text": "42",
-        "isClickable": true
+        "isClickable": false,
+        "isDisabled": false,
+        "classes": "variant-option-wrapper"
       }
     ]
   ]
