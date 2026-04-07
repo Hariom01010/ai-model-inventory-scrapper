@@ -2,6 +2,7 @@ import { STORE_URLS, VARIANT_CANDIDATES } from "./constants.js";
 import { chromium } from "playwright";
 import path from "path";
 import fs from "fs";
+import { clickVariant, removeDivClusterIfLabelExists } from "./utils.js";
 
 async function predictProductCards(items) {
   const res = await fetch("http://127.0.0.1:8000/predict/product-card/", {
@@ -137,9 +138,10 @@ async function main() {
         const page = await context.newPage();
         await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
         await page.waitForTimeout(1000);
-
+        
+        
         const elements = await page.evaluate((selectors) => {
-          return selectors.flatMap((selector) => {
+          return selectors.flatMap((selector) => {  
             const nodes = Array.from(document.querySelectorAll(selector));
 
             return nodes
@@ -192,6 +194,13 @@ async function main() {
                   (isNativeClickable || hasClickableRole || hasPointerCursor) &&
                   isNotDisabled;
 
+                const dataAttributes = Array.from(element.attributes)
+                  .filter((attr) => /^data-/.test(attr.name))
+                  .reduce((acc, attr) => {
+                    acc[attr.name] = attr.value;
+                    return acc;
+                  }, {});
+
                 if (isInViewport && isVisible && hasSize) {
                   return {
                     x: rect.x,
@@ -206,6 +215,7 @@ async function main() {
                       hasDirectImage || hasChildImage || hasBackgroundImage,
                     text: element.innerText,
                     isClickable,
+                    dataAttributes,
                   };
                 }
                 return null;
@@ -213,9 +223,22 @@ async function main() {
               .filter((item) => item !== null);
           });
         }, VARIANT_CANDIDATES);
-        
+
         const clusters = await clusterProductVariants(elements);
-        console.log("RAW RESPONSE:", clusters);
+        removeDivClusterIfLabelExists(clusters)
+        await page.close();
+
+        for (const cluster of clusters) {
+          const page = await context.newPage();
+          await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
+
+          for (const item of cluster) {
+            await clickVariant(page, item);
+            await page.waitForTimeout(500);
+          }
+          await page.close();
+        }
+
         const filePath = path.join(
           "train_data/product_variants",
           `page_${count}_variants.json`,
@@ -223,7 +246,7 @@ async function main() {
         const dataToSave = {
           url: productUrls[j],
           clusters: clusters,
-        }; 
+        };
 
         fs.writeFileSync(filePath, JSON.stringify(dataToSave, null, 2));
         console.log(`Saved results for Page ${count} to ${filePath}`);
