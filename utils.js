@@ -47,7 +47,6 @@ export async function clickVariant(page, item) {
 export function removeDivClusterIfLabelExists(clusters) {
   let labelTexts = new Set();
 
-  // Step 1: collect all label texts across clusters
   for (const cluster of clusters) {
     for (const item of cluster) {
       if (item.tagName === "LABEL" && item.text) {
@@ -55,8 +54,8 @@ export function removeDivClusterIfLabelExists(clusters) {
       }
     }
   }
-
-  // Step 2: remove divs that duplicate labels
+  console.log("-----------------------------------------------------")
+  console.log("Label Text: ", labelTexts)
   return clusters.map(cluster =>
     cluster.filter(item => {
       if (
