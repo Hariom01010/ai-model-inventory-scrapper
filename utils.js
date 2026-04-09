@@ -1,14 +1,14 @@
 export function buildSelector(item) {
   const tag = item.tagName.toLowerCase();
 
-  if(item.text && item.text.trim().length > 0){
+  if (item.text && item.text.trim().length > 0) {
     return `${tag}:text-is("${item.text.trim()}")`;
   }
 
   const dataAttrs = item.dataAttributes || {};
   const entries = Object.entries(dataAttrs);
 
-  if(entries.length > 0){
+  if (entries.length > 0) {
     const attrSelector = entries
       .map(([key, value]) => `[${key}="${value}"]`)
       .join("");
@@ -30,11 +30,11 @@ export async function clickVariant(page, item) {
   try {
     const element = await page.locator(selector).nth(0);
 
-    if (await element.count() === 0) {
+    if ((await element.count()) === 0) {
       console.log("❌ Not found:", selector);
       return false;
     }
-    await element.evaluate(e => e.click());;
+    await element.evaluate((e) => e.click());
 
     console.log("✅ Clicked:", selector);
     return true;
@@ -44,27 +44,40 @@ export async function clickVariant(page, item) {
   }
 }
 
-export function removeDivClusterIfLabelExists(clusters) {
-  let labelTexts = new Set();
+function getSignature(cluster) {
+  const texts =  cluster.map((el) => (el.text || "").trim()).join("|");
+  return [...new Set(texts)].join("|");
+}
+function getPriority(cluster) {
+  let score = 0;
+
+  for (const el of cluster) {
+    const tag = el.tagName?.toLowerCase();
+
+    if (tag === "label") score += 2;
+    else if (tag === "div") score += 1;
+  }
+
+  return score;
+}
+
+export function dedupeClusters(clusters) {
+  const map = new Map();
 
   for (const cluster of clusters) {
-    for (const item of cluster) {
-      if (item.tagName === "LABEL" && item.text) {
-        labelTexts.add(item.text.trim());
+    const signature = getSignature(cluster);
+    const priority = getPriority(cluster);
+
+    if (!map.has(signature)) {
+      map.set(signature, { cluster, priority });
+    } else {
+      const existing = map.get(signature);
+
+      if (priority > existing.priority) {
+        map.set(signature, { cluster, priority });
       }
     }
   }
-  console.log("-----------------------------------------------------")
-  console.log("Label Text: ", labelTexts)
-  return clusters.map(cluster =>
-    cluster.filter(item => {
-      if (
-        item.tagName === "DIV" &&
-        labelTexts.has(item.text?.trim())
-      ) {
-        return false;
-      }
-      return true;
-    })
-  );
+
+  return Array.from(map.values()).map((v) => v.cluster);
 }

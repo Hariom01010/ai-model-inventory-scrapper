@@ -1,6 +1,6 @@
 export const STORE_URLS = [
-  "https://saralhome.com/collections/bedsheet",
   "https://www.nicobar.com/collections/sindhu?filter.p.m.filter.collection_category=Men&filter.v.availability=1&sort_by=manual&test=1&view=cc",
+  "https://saralhome.com/collections/bedsheet",
   "https://hiutdenim.co.uk/collections/mens",
   "https://www.nicobar.com/collections/sindhu?view=cc",
   "https://www.tentree.com/collections/womens?page=1",
@@ -43,3 +43,9 @@ export const VARIANT_CANDIDATES = [
   '[class*="swatch"]',
   '[class*="variant"]',
 ];
+
+export const NAVBAR_CANDIDATES = [
+  "navbar",
+  "header",
+  "footer"
+]

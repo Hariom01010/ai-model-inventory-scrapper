@@ -1,8 +1,12 @@
-import { STORE_URLS, VARIANT_CANDIDATES } from "./constants.js";
+import {
+  NAVBAR_CANDIDATES,
+  STORE_URLS,
+  VARIANT_CANDIDATES,
+} from "./constants.js";
 import { chromium } from "playwright";
 import path from "path";
 import fs from "fs";
-import { clickVariant, removeDivClusterIfLabelExists } from "./utils.js";
+import { clickVariant, dedupeClusters } from "./utils.js";
 
 async function predictProductCards(items) {
   const res = await fetch("http://127.0.0.1:8000/predict/product-card/", {
@@ -40,9 +44,10 @@ async function main() {
 
   let count = 0;
   for (let i = 0; i < STORE_URLS.length; i++) {
-    const page = await context.newPage();
+    let page;
     try {
       console.log(`[INFO]: Visiting ${STORE_URLS[i]}`);
+      page = await context.newPage();
       await page.goto(STORE_URLS[i], { waitUntil: "domcontentloaded" });
       await page.waitForTimeout(2000);
 
@@ -134,20 +139,21 @@ async function main() {
       console.log("[INFO]: Product URLs:", productUrls);
       console.log(`[INFO]: Found ${productCards.length} product cards`);
 
-      for (let j = 0; j < 3; j++) {
-        const page = await context.newPage();
-        await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
-        await page.waitForTimeout(1000);
-        
-        
-        const elements = await page.evaluate((selectors) => {
-          return selectors.flatMap((selector) => {  
-            const nodes = Array.from(document.querySelectorAll(selector));
+      // replace 3 with product urls length
+      const productPage = await context.newPage();
 
+      for (let j = 0; j < 3; j++) {
+        await productPage.goto(productUrls[j], {
+          waitUntil: "domcontentloaded",
+        });
+        await productPage.waitForTimeout(5000);
+
+        const elements = await productPage.evaluate((selectors) => {
+          return selectors.flatMap((selector) => {
+            const nodes = Array.from(document.querySelectorAll(selector));
             return nodes
               .map((element) => {
                 const rect = element.getBoundingClientRect();
-
                 const hasSize = rect.width > 0 && rect.height > 0;
                 const isInViewport =
                   rect.top >= 0 &&
@@ -189,7 +195,6 @@ async function main() {
                 const isNotDisabled =
                   !element.disabled &&
                   element.getAttribute("aria-disabled") !== "true";
-
                 const isClickable =
                   (isNativeClickable || hasClickableRole || hasPointerCursor) &&
                   isNotDisabled;
@@ -225,34 +230,47 @@ async function main() {
         }, VARIANT_CANDIDATES);
 
         const clusters = await clusterProductVariants(elements);
-        removeDivClusterIfLabelExists(clusters)
-        await page.close();
+        const cleanedClusters = dedupeClusters(clusters);
 
-        for (const cluster of clusters) {
-          const page = await context.newPage();
-          await page.goto(productUrls[j], { waitUntil: "domcontentloaded" });
+        for (const cluster of cleanedClusters) {
+          await productPage.goto(productUrls[j], {
+            waitUntil: "domcontentloaded",
+          });
+          await productPage.waitForTimeout(2000);
 
           for (const item of cluster) {
-            await clickVariant(page, item);
-            await page.waitForTimeout(500);
+            await clickVariant(productPage, item);
+            await productPage.waitForTimeout(500);
           }
-          await page.close();
         }
+
+        const rawFilePath = path.join(
+          "train_data/product_variants/initial_data",
+          `page_${count}_variants.json`,
+        );
+        fs.writeFileSync(
+          rawFilePath,
+          JSON.stringify({ url: productUrls[j], clusters }, null, 2),
+        );
 
         const filePath = path.join(
           "train_data/product_variants",
           `page_${count}_variants.json`,
         );
-        const dataToSave = {
-          url: productUrls[j],
-          clusters: clusters,
-        };
+        fs.writeFileSync(
+          filePath,
+          JSON.stringify(
+            { url: productUrls[j], clusters: cleanedClusters },
+            null,
+            2,
+          ),
+        );
 
-        fs.writeFileSync(filePath, JSON.stringify(dataToSave, null, 2));
         console.log(`Saved results for Page ${count} to ${filePath}`);
         count++;
-        await page.close();
       }
+
+      await productPage.close();
     } catch (e) {
       console.log(e);
       console.log(`[ERROR]: Error executing ${i}`);
