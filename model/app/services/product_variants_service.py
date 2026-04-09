@@ -23,7 +23,7 @@ def cluster_variant_elements(items):
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(x)
 
-    db = DBSCAN(eps=0.5, min_samples=2)
+    db = DBSCAN(eps=1.5, min_samples=2)
     labels = db.fit_predict(X_scaled)
 
     clusters = defaultdict(list)
