@@ -1,8 +1,8 @@
 export const STORE_URLS = [
   "https://www.shopstitchstories.com/collections/tops-shirts",
+  // "https://saralhome.com/collections/bedsheet",
   // "https://www.amydus.com/collections/plus-size-jeans",
   // "https://www.nicobar.com/collections/sindhu?filter.p.m.filter.collection_category=Men&filter.v.availability=1&sort_by=manual&test=1&view=cc",
-  // "https://saralhome.com/collections/bedsheet",
   // "https://hiutdenim.co.uk/collections/mens",
   // "https://www.nicobar.com/collections/sindhu?view=cc",
   // "https://www.tentree.com/collections/womens?page=1",

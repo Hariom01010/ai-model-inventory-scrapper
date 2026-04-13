@@ -1,0 +1,137 @@
+{
+  "url": "https://www.shopstitchstories.com/collections/tops-shirts/products/ivey-embroidered-cotton-poplin-shirt",
+  "clusters": [
+    [
+      {
+        "x": 1183.75,
+        "y": 292.65625,
+        "width": 58.578125,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "XS",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      },
+      {
+        "x": 1254.328125,
+        "y": 292.65625,
+        "width": 50.0625,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "S",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      },
+      {
+        "x": 1316.390625,
+        "y": 292.65625,
+        "width": 54.0625,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "M",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      },
+      {
+        "x": 1382.453125,
+        "y": 292.65625,
+        "width": 49.734375,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "L",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      },
+      {
+        "x": 1444.1875,
+        "y": 292.65625,
+        "width": 58.171875,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "XL",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      },
+      {
+        "x": 1514.359375,
+        "y": 292.65625,
+        "width": 66.625,
+        "height": 37.59375,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 1,
+        "hasImage": false,
+        "text": "XXL",
+        "isClickable": false,
+        "dataAttributes": {},
+        "classes": "radio__label"
+      }
+    ],
+    [
+      {
+        "x": 1185.75,
+        "y": 216.546875,
+        "width": 32,
+        "height": 32,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 2,
+        "hasImage": false,
+        "text": "White",
+        "isClickable": false,
+        "dataAttributes": {
+          "data-swatch": "White",
+          "data-tooltip": "White",
+          "data-swatch-variant": "53846201139475,53846201172243,53846201205011,53846201237779,53846201270547,53846201303315"
+        },
+        "classes": "swatch__label"
+      },
+      {
+        "x": 1185.75,
+        "y": 216.546875,
+        "width": 32,
+        "height": 32,
+        "tagName": "LABEL",
+        "parent": "SPAN",
+        "siblingCount": 1,
+        "childCount": 2,
+        "hasImage": false,
+        "text": "White",
+        "isClickable": false,
+        "dataAttributes": {
+          "data-swatch": "White",
+          "data-tooltip": "White",
+          "data-swatch-variant": "53846201139475,53846201172243,53846201205011,53846201237779,53846201270547,53846201303315"
+        },
+        "classes": "swatch__label"
+      }
+    ]
+  ]
+}

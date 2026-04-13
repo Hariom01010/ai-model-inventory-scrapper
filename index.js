@@ -171,30 +171,52 @@ async function main() {
       const debugPath = path.join("data/debug", `debug_${count}.html`);
       await fs.writeFile(debugPath, html);
 
-      const elements = await page.evaluate((selectors) => {
+      const elements = await page.evaluate(async (selectors) => {
+        const observed = new Set();
+        const forms = Array.from(
+          document.querySelectorAll(
+            "form[action*='/cart/add'], form[data-product-form]",
+          ),
+        );
+        const root = forms.length > 0 ? forms[0] : document;
+
+        const allNodes = selectors.flatMap((selector) =>
+          Array.from(root.querySelectorAll(selector)),
+        );
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && entry.intersectionRatio > 0.6) {
+                observed.add(entry.target);
+              }
+            });
+          },
+          { threshold: [0.6] },
+        );
+
+        allNodes.forEach((el) => observer.observe(el));
+        await new Promise((resolve) => setTimeout(resolve, 300));
+
+        observer.disconnect();
+        allNodes.forEach((el) => {
+          if (!observed.has(el)) {
+            el.remove();
+          }
+        });
+
         return selectors.flatMap((selector) => {
-          const nodes = Array.from(document.querySelectorAll(selector));
+          const nodes = Array.from(root.querySelectorAll(selector));
           return nodes
             .map((element) => {
               const style = window.getComputedStyle(element);
               const rect = element.getBoundingClientRect();
 
-              const isInViewport =
-                rect.width > 0 &&
-                rect.height > 0 &&
-                rect.bottom > 0 &&
-                rect.right > 0 &&
-                rect.top < window.innerHeight &&
-                rect.left < window.innerWidth &&
-                style.display !== "none" &&
-                style.visibility !== "hidden" &&
-                style.opacity !== "0" &&
-                style.pointerEvents !== "none";
-
               const isVisible =
                 style.display !== "none" &&
                 style.visibility !== "hidden" &&
                 style.opacity !== "0";
+              if (!isVisible) return null;
 
               const hasDirectImage =
                 element.tagName === "IMG" || element.tagName === "SVG";
@@ -233,7 +255,7 @@ async function main() {
                   return acc;
                 }, {});
 
-              if (isInViewport && isVisible) {
+              if (isVisible) {
                 return {
                   x: rect.x,
                   y: rect.y,
@@ -248,7 +270,7 @@ async function main() {
                   text: element.innerText,
                   isClickable,
                   dataAttributes,
-                  classes: element.clas
+                  classes: element.className,
                 };
               }
               return null;

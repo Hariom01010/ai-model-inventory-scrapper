@@ -2,7 +2,7 @@ export function buildSelector(item) {
   const tag = item.tagName.toLowerCase();
 
   if (item.text && item.text.trim().length > 0) {
-    return `${tag}:text-is("${item.text.trim()}")`;
+    return `${tag}:has-text("${item.text.trim()}")`;
   }
 
   const dataAttrs = item.dataAttributes || {};
