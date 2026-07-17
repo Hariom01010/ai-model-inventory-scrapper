@@ -1,5 +1,8 @@
 node_modules
 crawler.log
+data/db.json
+data/db.json.tmp
+frontend/dist
 
 __pycache__
 
