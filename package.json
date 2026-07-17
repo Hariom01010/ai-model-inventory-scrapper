@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "frontend": "npm run dev",
-    "backend": "python -m uvicorn model_service.app.main:app --reload",
+    "backend": "cd model && python -m uvicorn main:app --reload",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
     
   },
