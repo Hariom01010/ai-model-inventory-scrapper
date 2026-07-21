@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import express from "express";
+import cron from "node-cron";
 import { db, save } from "./db.js";
 import { findAdapterForUrl, listAdapters } from "./scraper/registry.js";
 
@@ -162,6 +163,15 @@ function startScrape(collection) {
   return true;
 }
 
+function scrapeAllCollections() {
+  console.log(`[cron] Triggering auto-scrape for all ${db.collections.length} tracked collection(s)...`);
+  let started = 0;
+  for (const collection of db.collections) {
+    if (startScrape(collection)) started++;
+  }
+  return started;
+}
+
 /* --------------------------------- API ---------------------------------- */
 
 app.get("/api/adapters", (req, res) => {
@@ -274,6 +284,11 @@ app.get("/api/collections/:id/export.csv", (req, res) => {
   res.send(String.fromCharCode(0xfeff) + snapshotCsv(brand, collection, snapshot, stockFilter));
 });
 
+app.post("/api/collections/scrape-all", (req, res) => {
+  const count = scrapeAllCollections();
+  res.json({ ok: true, message: `Triggered scrape for ${count} collection(s).` });
+});
+
 app.post("/api/collections/:id/scrape", (req, res) => {
   const collection = db.collections.find((c) => c.id === req.params.id);
   if (!collection) return res.status(404).json({ error: "Collection not found." });
@@ -297,6 +312,20 @@ for (const collection of db.collections) {
   if (collection.scrapeStatus === "running") collection.scrapeStatus = "idle";
 }
 
+// Schedule daily automated stock refresh at 05:30 AM IST
+cron.schedule(
+  "30 5 * * *",
+  () => {
+    console.log("[cron] Executing scheduled daily 5:30 AM IST stock update...");
+    scrapeAllCollections();
+  },
+  {
+    scheduled: true,
+    timezone: "Asia/Kolkata",
+  }
+);
+
 app.listen(PORT, () => {
   console.log(`Inventory tracker running at http://localhost:${PORT}`);
+  console.log(`Daily auto-scrape scheduled for 05:30 AM IST (Asia/Kolkata)`);
 });
