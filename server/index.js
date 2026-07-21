@@ -58,6 +58,61 @@ function brandView(brand) {
   };
 }
 
+function csvCell(value) {
+  const text = value == null ? "" : String(value);
+  return /[",\r\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+}
+
+function snapshotCsv(brand, collection, snapshot, stockFilter) {
+  // Option names (e.g. "Footwear Size") vary per collection, so derive the
+  // columns from whatever this snapshot actually contains.
+  const optionNames = [];
+  for (const product of snapshot.products) {
+    for (const variant of product.variants) {
+      for (const option of variant.options) {
+        if (!optionNames.includes(option.name)) optionNames.push(option.name);
+      }
+    }
+  }
+
+  const rows = [
+    [
+      "Brand",
+      "Collection",
+      "Product",
+      "Product SKU",
+      "Product URL",
+      "Price",
+      "Currency",
+      "Variant SKU",
+      ...optionNames,
+      "Stock Status",
+      "Scraped At",
+    ],
+  ];
+  for (const product of snapshot.products) {
+    for (const variant of product.variants) {
+      if (stockFilter === "in" && !variant.inStock) continue;
+      if (stockFilter === "out" && variant.inStock) continue;
+      const options = new Map(variant.options.map((option) => [option.name, option.value]));
+      rows.push([
+        brand?.name,
+        collection.name,
+        product.name,
+        product.sku,
+        product.url,
+        product.price?.value,
+        product.price?.currency,
+        variant.sku,
+        ...optionNames.map((name) => options.get(name)),
+        variant.inStock ? "In stock" : "Out of stock",
+        snapshot.scrapedAt,
+      ]);
+    }
+  }
+  return rows.map((row) => row.map(csvCell).join(",")).join("\r\n") + "\r\n";
+}
+
 function parseUrl(value) {
   try {
     const url = new URL(value);
@@ -196,6 +251,27 @@ app.get("/api/collections/:id", (req, res) => {
   if (!collection) return res.status(404).json({ error: "Collection not found." });
   const snapshot = db.snapshots[collection.id] ?? null;
   res.json({ ...collectionView(collection), snapshot });
+});
+
+app.get("/api/collections/:id/export.csv", (req, res) => {
+  const collection = db.collections.find((c) => c.id === req.params.id);
+  if (!collection) return res.status(404).json({ error: "Collection not found." });
+  const snapshot = db.snapshots[collection.id];
+  if (!snapshot) {
+    return res.status(404).json({ error: "Nothing scraped yet — refresh stock first." });
+  }
+
+  const stockFilter = ["in", "out"].includes(req.query.stock) ? req.query.stock : "all";
+  const brand = db.brands.find((b) => b.id === collection.brandId);
+  const slug =
+    collection.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") ||
+    "collection";
+  const suffix = { all: "stock", in: "in-stock", out: "out-of-stock" }[stockFilter];
+
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
+  res.setHeader("Content-Disposition", `attachment; filename="${slug}-${suffix}.csv"`);
+  // Leading BOM so Excel detects UTF-8.
+  res.send(String.fromCharCode(0xfeff) + snapshotCsv(brand, collection, snapshot, stockFilter));
 });
 
 app.post("/api/collections/:id/scrape", (req, res) => {

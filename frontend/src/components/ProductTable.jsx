@@ -46,7 +46,14 @@ function VariantRow({ variant }) {
   );
 }
 
-export default function ProductTable({ groups, hasProducts }) {
+function stockSummary(product, stockFilter) {
+  const total = product.variants.length;
+  const inStock = product.variants.filter((variant) => variant.inStock).length;
+  if (stockFilter === "out") return `${total - inStock}/${total} variants out of stock`;
+  return `${inStock}/${total} variants in stock`;
+}
+
+export default function ProductTable({ groups, hasProducts, stockFilter = "all" }) {
   return (
     <table className="product-table">
       <thead>
@@ -66,7 +73,6 @@ export default function ProductTable({ groups, hasProducts }) {
           </tr>
         ) : (
           groups.map(({ product, variants }) => {
-            const inStockCount = product.variants.filter((variant) => variant.inStock).length;
             return (
               <Fragment key={product.sku}>
                 <tr className="product-row">
@@ -84,9 +90,7 @@ export default function ProductTable({ groups, hasProducts }) {
                     </div>
                   </td>
                   <td className="product-price">{formatPrice(product.price)}</td>
-                  <td className="product-stock-summary">
-                    {inStockCount}/{product.variants.length} variants in stock
-                  </td>
+                  <td className="product-stock-summary">{stockSummary(product, stockFilter)}</td>
                 </tr>
                 {variants.map((variant) => (
                   <VariantRow key={variant.sku ?? JSON.stringify(variant.options)} variant={variant} />

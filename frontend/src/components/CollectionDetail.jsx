@@ -47,6 +47,12 @@ export default function CollectionDetail({ detail, brandName, onBack, onScrape, 
     return { filtered: result, shownVariants: count };
   }, [products, search, stockFilter]);
 
+  // Same-origin API route; the stock filter carries over so the file matches
+  // what's on screen (search text is client-only and not applied).
+  const exportHref = `/api/collections/${detail.id}/export.csv${
+    stockFilter === "all" ? "" : `?stock=${stockFilter}`
+  }`;
+
   async function handleScrape() {
     try {
       await onScrape(detail.id);
@@ -72,6 +78,11 @@ export default function CollectionDetail({ detail, brandName, onBack, onScrape, 
           </div>
         </div>
         <div className="actions">
+          {products.length > 0 && (
+            <a className="btn" href={exportHref} download>
+              ⬇ Export CSV
+            </a>
+          )}
           <button type="button" className="btn" onClick={handleScrape} disabled={running}>
             {running ? (
               <>
@@ -121,7 +132,7 @@ export default function CollectionDetail({ detail, brandName, onBack, onScrape, 
         <span className="result-count">{shownVariants} variants shown</span>
       </div>
 
-      <ProductTable groups={filtered} hasProducts={products.length > 0} />
+      <ProductTable groups={filtered} hasProducts={products.length > 0} stockFilter={stockFilter} />
     </>
   );
 }

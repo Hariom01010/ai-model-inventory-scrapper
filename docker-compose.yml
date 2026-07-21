@@ -1,0 +1,15 @@
+services:
+  inventory-tracker:
+    build: .
+    container_name: inventory-tracker
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+    volumes:
+      - inventory_data:/app/data
+
+volumes:
+  inventory_data:

@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: inventory-tracker
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    disk:
+      name: inventory-data
+      mountPath: /app/data
+      sizeGB: 1
